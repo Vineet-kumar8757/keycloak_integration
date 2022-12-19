@@ -21,9 +21,6 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 @Import(KeycloakSpringBootConfigResolver.class)
 public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
 {
-    /**
-     * Registers the KeycloakAuthenticationProvider with the authentication manager.
-     */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         KeycloakAuthenticationProvider authenticationProvider = new KeycloakAuthenticationProvider();
@@ -31,9 +28,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     	auth.authenticationProvider(authenticationProvider);
     }
 
-    /**
-     * Defines the session authentication strategy.
-     */
+   
     @Bean
     @Override
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
